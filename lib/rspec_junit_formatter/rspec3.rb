@@ -63,7 +63,7 @@ private
     while parent_metadata = metadata[:parent_example_group]
       metadata = parent_metadata
     end
-    metadata[:file_path].sub(%r{\A\./}, '')
+    metadata[:file_path].sub(%r{\A(\*\*/)?\./}, '').sub(/(\.)?\*\z/, '')
   end
 
   def classname_for(notification)
